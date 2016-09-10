@@ -52,7 +52,6 @@ public class UserControll {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(User user)
     {
-        //User user = new User("kuylim.tith@gmail.com", "Kuylim");
         userRepo.add(user);
         return "redirect:/";
     }
