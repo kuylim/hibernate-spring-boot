@@ -40,9 +40,10 @@ public class UserRepo {
         getSession().delete(user);
     }
     
-    public List<User> getAll()
+    @SuppressWarnings("unchecked")
+	public List<User> getAll()
     {
-        return getSession().createQuery("from User").list();
+        return (List<User>) getSession().createQuery("from User").list();
     }
     
     public void update (User user)
