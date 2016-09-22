@@ -41,8 +41,9 @@ public class UserRepo {
     }
     
     @SuppressWarnings("unchecked")
-	public List<User> getAll()
+    public List<User> getAll()
     {
+        //I got from you spring tool suite
         return (List<User>) getSession().createQuery("from User").list();
     }
     
