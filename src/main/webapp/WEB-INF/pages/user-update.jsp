@@ -31,6 +31,16 @@
                         <label> Email : </label>
                         <input type="text" name="email" placeholder="student score" class="form-control" value="${User.email}">
                     </div>
+                    
+                    <div>
+                        <label>Address 1 : </label>
+                        <input type="text" placeholder="Address 1" class="form-control" name="address.address1" value="${User.address.address1}">
+                    </div>
+                    
+                    <div>
+                        <label>Address 2 : </label>
+                        <input type="text" placeholder="Address 2" class="form-control" name="address.address2" value="${User.address.address2}">
+                    </div>
                     <div>
                         <input type="submit" value="update" class="btn btn-success" style="margin-top: 10px;">
                     </div>

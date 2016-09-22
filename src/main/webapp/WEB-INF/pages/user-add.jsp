@@ -20,13 +20,32 @@
             <form action="save" method="post" id="user">
                 <fieldset class="form-group">             
                     <div>
-                        <label> Name : </label>
+                        <label>Name : </label>
                         <input type="text" name="name" placeholder="Name" class="form-control">
                     </div>
                     
                     <div>
-                        <label> Email : </label>
+                        <label>Email : </label>
                         <input type="email" placeholder="email" class="form-control" name="email">
+                    </div>
+                    
+                    <div>
+                        <label>Address 1 : </label>
+                        <input type="text" placeholder="Address 1" class="form-control" name="address.address1">
+                    </div>
+                    
+                    <div>
+                        <label>Address 2 : </label>
+                        <input type="text" placeholder="Address 2" class="form-control" name="address.address2">
+                    </div>
+                    
+                    <div>
+                        <label>User Role :</label>
+                        <select name="roles.role" multiple ="multiple" class="form-control">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                            <option value="developer">developer</option>
+                        </select>
                     </div>
                     <div>
                         <input type="submit" value="Add" class="btn btn-success" style="margin-top: 10px;" >

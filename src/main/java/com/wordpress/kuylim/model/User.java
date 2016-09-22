@@ -6,11 +6,21 @@
 package com.wordpress.kuylim.model;
 
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -20,7 +30,7 @@ import javax.validation.constraints.NotNull;
  * @author KUYLIM
  */
 @Entity
-@Table(name="user")
+@Table(name="users")
 @SuppressWarnings({"PersistenceUnitPresent"})
 public class User implements Serializable {
     
@@ -34,16 +44,30 @@ public class User implements Serializable {
     @NotNull
     private String email;
     
+    @Embedded
+    private Address address = new Address();
+    
+    // Collection Mapping
+//    @ElementCollection
+//    @CollectionTable(name="role", joinColumns = @JoinColumn(name="usrid"))
+//    @Column(name = "role")
+//    private List<String> role = new ArrayList<>();
+    //====================================================================
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usrid")
+    private List<Role> roles = new ArrayList<>();
+    
     public User() {}
     
     public User(int id) { 
         this.id = id;
     }
     
-    public User(String email, String name) {
-        this.email = email;
-        this.name = name;
-      }
+//    public User(String email, String name) {
+//        this.email = email;
+//        this.name = name;
+//      }
 
     /**
      * @return the id
@@ -85,5 +109,33 @@ public class User implements Serializable {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * @return the address
+     */
+    public Address getAddress() {
+        return address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    /**
+     * @return the role
+     */
+    public List<Role> getRole() {
+        return roles;
+    }
+
+    /**
+     * @param role the role to set
+     */
+    public void setRole(List<Role> role) {
+        this.roles = role;
     }
 }
