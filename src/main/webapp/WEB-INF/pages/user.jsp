@@ -32,6 +32,8 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Address 1</th>
+                    <th>Address 2</th>
                     <th>Action</th>
                 </tr>
                         
@@ -40,6 +42,8 @@
                         <td>${usr.id}</td>
                         <td>${usr.name}</td>
                         <td>${usr.email}</td>
+                        <td>${usr.address.address1}</td>
+                        <td>${usr.address.address2}</td>
                         
                         <td>
                             <a href="javascript:confirmGo('Sure to delete this record?','delete/${usr.id}')" class="btn btn-danger">Delete</a>

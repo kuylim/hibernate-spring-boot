@@ -53,6 +53,7 @@ public class UserControll {
     public String save(User user)
     {
         userRepo.add(user);
+        System.out.println(user.getRole().get(0).getRole());
         return "redirect:/";
     }
     
